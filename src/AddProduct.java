@@ -59,6 +59,7 @@ public class AddProduct extends javax.swing.JFrame {
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 153, 255));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("Enter the Product Details");
@@ -187,7 +188,7 @@ public class AddProduct extends javax.swing.JFrame {
         final String db_name="jdbc:mysql://localhost:3306/inventory";
 	final String username = "root";
 	final String password="Amanulla1997";
-        final String insert_value="insert into inventory.product values(?,?,?,?,?,?)";
+        final String insert_value="insert into inventory.product_backup values(?,?,?,?,?,?)";
         try {
                         Connection conn = DriverManager.getConnection(db_name, username, password);
 			PreparedStatement statement = conn.prepareStatement(insert_value);
@@ -197,6 +198,12 @@ public class AddProduct extends javax.swing.JFrame {
                         statement.setString(4,cat);
                         statement.setInt(5,price_product);
                         statement.setInt(6,quantity_of_product);
+                       /* statement_backup.setInt(1,product);
+                        statement_backup.setString(2,name);
+                        statement_backup.setString(3,company_name);
+                        statement_backup.setString(4,cat);
+                        statement_backup.setInt(5,price_product);
+                        statement_backup.setInt(6,quantity_of_product);*/
                         data=statement.executeUpdate();
                         if(data>0)
                         {
